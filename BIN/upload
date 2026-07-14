@@ -1,0 +1,57 @@
+Love it — final build, production ready from day one. Let's plan the complete picture before writing a line.
+
+---
+
+**Complete Upload Pipeline — Final Build:**
+
+**Security layer:**
+- Server side mime validation
+- Rate limiting on chunk route
+- Upload ID ownership validation
+- File size validation per type
+
+**Processing layer:**
+- Queue based — nothing synchronous
+- Video → FFmpeg thumbnail + duration
+- Audio → duration extraction
+- PDF → page 1 thumbnail via DomPDF
+- All via Laravel jobs
+
+**Storage layer:**
+- Abstracted disk — swap local for R2 later with zero code changes
+- Permanent paths: `media/videos/`, `media/audio/`, `media/pdfs/`, `media/images/`
+- Temp paths: `temp/chunks/`, `temp/assembled/`
+
+**Cleanup layer:**
+- Scheduled job — purge stale chunks older than 24hrs
+- Purge abandoned assembled files older than 48hrs
+
+---
+
+**Form UI — Step based flow:**
+
+```
+Step 1 — Basic Info
+    Title, slug, excerpt, format selector
+
+Step 2 — Content
+    Body text (if text format)
+    OR FilePond upload (if video/audio/pdf)
+
+Step 3 — Cover & Meta
+    Cover image upload
+    Visibility, token price
+
+Step 4 — Publish
+    Status selector
+    Preview summary
+    Publish button
+```
+
+---
+
+Before we start — two quick questions:
+
+1. For the step based form, do you want steps to be **linear** (must complete step 1 before step 2) or **free navigation** (jump between steps freely)?
+
+2. For media processing jobs — do you want a **visual indicator** on the editorial showing "processing" until the job completes? Like a spinner on the media card? 🤝

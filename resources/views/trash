@@ -1,0 +1,29 @@
+FICTION
+
+The Tale of the lady in LOVE
+
+She confessed her love for him. And he believed her, he took her literarily. "she loves me" he said. Now I can never do no wrong by her. And he was right. But, does she really understand love. because the pain starts !
+
+
+
+
+Actions and outcomes VS Time and space. 
+
+The aguement for ACTIONS and OUTCOMES over TIME and SPACE.  Have we missed some vital premise ? 
+There is an argument to be made that time and space is a product of actions and outcomes.  space been the venue for the said actions and outcome and time been the medium with which its been observed.
+
+Let's get into it and break down this premise.  Ride with me!
+
+
+
+php artisan make:model Bookmark -m
+
+
+
+
+
+
+php artisan make:livewire messaging/inbox 
+php artisan make:livewire messaging/conversation 
+php artisan make:livewire messaging/chat-rooms 
+php artisan make:livewire messaging/chat-room 
