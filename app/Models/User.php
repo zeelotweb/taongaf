@@ -43,7 +43,7 @@ class User extends Authenticatable implements PasskeyUser
 
 
 
-/**  **/
+/**  
 protected static function booted(): void
 {
     static::creating(function ($user) {
@@ -53,7 +53,7 @@ protected static function booted(): void
     });
 }
 
-
+**/
 
 
 public function getOrCreateWallet(): \App\Models\Wallet
